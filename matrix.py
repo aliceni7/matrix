@@ -12,7 +12,21 @@ import math
 #print the matrix such that it looks like
 #the template in the top comment
 def print_matrix( matrix ):
-    pass
+    rows = len( matrix[1] )
+    columns = len( matrix )
+    count = 0;
+    tick = 0;
+    b = 0;
+    while ( columns > 1):
+        for frist in matrix:
+            for sceond in frist:
+                print frist[count]
+                tick += 1
+                break
+            if ( tick == columns ):
+                tick = 0;
+                count += 1
+        columns -= 1
 
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
@@ -32,5 +46,5 @@ def new_matrix(rows = 4, cols = 4):
     for c in range( cols ):
         m.append( [] )
         for r in range( rows ):
-            m[c].append( 0 )
+            m[c].append( r )
     return m

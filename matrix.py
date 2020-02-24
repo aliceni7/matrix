@@ -12,31 +12,33 @@ import math
 #print the matrix such that it looks like
 #the template in the top comment
 def print_matrix( matrix ):
-    rows = len( matrix[1] )
-    columns = len( matrix )
-    count = 0;
-    tick = 0;
-    b = 0;
-    while ( columns > 1):
-        for frist in matrix:
-            for sceond in frist:
-                print frist[count]
-                tick += 1
-                break
-            if ( tick == columns ):
-                tick = 0;
-                count += 1
-        columns -= 1
+    string = ""
+    for row in range ( len( matrix[0] ) ):
+        for column in matrix:
+            string += str(column[row]) + "  "
+        string += "\n"
+    print( string )
 
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
-    pass
+    for column in range ( len( matrix ) ):
+        for row in range ( len ( matrix[column] ) ):
+            if ( column == row ):
+                matrix[column][row] = 1.0
+            else:
+                matrix[column][row] = 0.0
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    pass
+    temp = m2
+    for a in range( len ( m2[0] ) ):
+        for b in range( len (m1) ):
+            ans = 0
+            for c in range( len (m2) ):
+                ans += temp[c][a] * m1[b][c]
+            m2[b][a] = ans
 
 
 
